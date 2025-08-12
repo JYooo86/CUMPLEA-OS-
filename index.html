@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🎉 Feliz Cumpleaños 🎈</title>
+<style>
+  body {
+    margin: 0;
+    background: linear-gradient(to top, #ffe0f0, #fff5cc);
+    font-family: 'Comic Sans MS', cursive;
+    text-align: center;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  h1 {
+    font-size: 2.5em;
+    color: #ff4081;
+    margin-top: 20px;
+  }
+  h2 {
+    font-size: 1.5em;
+    color: #ff6f91;
+    margin: 5px 0 20px 0;
+  }
+  .decoraciones {
+    font-size: 2em;
+    animation: flotar 3s ease-in-out infinite;
+  }
+  @keyframes flotar {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+  }
+  #felizDia {
+    font-size: 3em;
+    color: #ff1493;
+    display: none;
+    margin-top: 20px;
+  }
+  #partePastel {
+    font-size: 1.2em;
+    color: #ff4500;
+    display: none;
+    margin-top: 8px;
+    font-weight: bold;
+  }
+  #imagenFinal {
+    width: 250px;
+    margin-top: auto;
+    margin-bottom: 10px;
+  }
+  canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+  }
+</style>
+</head>
+<body>
+  <h1>🎈🎂 ¡Feliz Cumpleaños! 🎈🎂</h1>
+  <h2>loca amante de la risa</h2>
+  <div class="decoraciones">🎈🎂🎈🎉🎈🎂🎈</div>
+  <div id="felizDia">🎉 FELIZ DÍA 🎉</div>
+  <div id="partePastel">Espero mi parte del pastel 😏 ATT JORDAN </div>
+
+  <!-- Imagen personalizada con base64 -->
+  <img id="imagenFinal" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMTEhUSExIWFRUXFRUWFxgXFxcXGBUVFRUWFhUXFhcYHSggGB0lHRcVITEhJSkrLi4uFx8zODMtNygtLisBCgoKDg0OFxAQGi0dHx8tLS0tLS0tLS0rLS0tLS0tKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSstLS0tLSs3Lf/AABEIAM4A9QMBIgACEQEDEQH/xAAcAAACAgMBAQAAAAAAAAAAAAAEBQMGAAECBwj/xAA6EAABAwIEAwUHAwMDBQAAAAABAAIRAwQFEiExQVFhBnGBkbETIjKhwdHwBxRCI1JyFmLhFUNTkvH/xAAaAQACAwEBAAAAAAAAAAAAAAABAgADBAUG/8QAJhEAAgICAQQCAgMBAAAAAAAAAAECEQMhEgQFMVETQSIyYXGRI//aAAwDAQACEQMRAD8A9sbTHJdwtwsQSSIcuah6tkx24RJWwFHFMgqfhxHwHwQlxT/8jPEKwQuXsBScPQKKXe4ZTftBPI6FI7nCHN2+avt/hLXat0KT3NlVZ1HmkcfYyk0UqpTc3cKIq11aTT8TYKW18IB+Ez8kjh6LVk9iPJKjLYRtW1cw7ceKgudHOB01KR2i1NMhD+a2HrRC5IUsNEoWSo2uW8ylhO8y5LlwStFAh1K1mXErJUCdOKxjtfP0UcrbRuenqQPqoQ37UcSpGPaeKDqOABJ2Cy2rNe3M06FQAS+q3mtUqg5qFzQo8gUIHNg6ArHtgboJjVI4TuoQmzA8Vhb1QQaFhaoAIKxDmmsUIe/rForYW4xmALaxYoQxYsWKENELRaulilEA7jD2O3aPDRKLrs9xY6FY1ohI4IhRcQsarRLmSBv9DKTYjbtc9piC5s+IBB9F6iWdEixjBmuyloAIJHg4EesKqcWtjRZ5bBDoXbWTKdvwg5iNdSeHGNPzqp6GCxBOkHX6qhtGqPgrkLkBWQ4RTzfFoOH0Ub8PYB7vn6JeaLFFsrrlgEp9RwxmXfX7kfQHzU1rhbDtzHkippkcWVpzfnPy3XEq13+Gs1gQfqdD6pYcFIB1E8OiPJApicldA+6e9o9f+FLVtiHZfE/IKH+LR1cfkB9CiAHuWZmlvMQgMGw99JhYTIkx3JtC01SwUcNpwt5ETToErr9uoQEhYCjDQUNSigQGlalRvfrC5zoikyxRF60oS0fQgW1ixbjIYsWLFCGLCsWioQAxDFaVGPaPidhufIcFu0xWlU0ZUa48pg+R1SbtTgpqkVGkyBEDl0HFVRlm4cduIWaeWUZeC+GKMo+dnqLStyqlg2KVGe7UOdvX4h48R3p9/wBTpx8SeOaLEljkmGPqAalLLvFWDSdfyEtv8RLpEwJ0/wCVWrqoQYlU5czekW48K+ywVb1p2A39UBd3aXUK30WrmpoO9UfRelvRxUr8OJW2OJA/OKGye9pz+iNayBPL0CWi6yMg7NTS0p5QCUqp1JdpzTKrU0A6Jogkc3AkieajrP1nhCgr10Dc3Y2lRhSMuXCTIBkR+eSioUKYO35JP1QN1dqGnfJOTQ/xpjZ2Hsgx4en3Qz7fLwW6VypxcjinUyqWL0DhacEXlYRoVyy1zGJHmmckV8GCFR5EzNgB/LyXJbl1AiOJ0SSypDRxtiGrYP3hC+x1TW7v9TGp4ngk15eBgLj8lISlLyLlxqIU2m3osVWqdoHTo3RYrqKKZ9SsqAiQQR01Ww5ePdlu0Ny4FwflbOxHBeh9l8TNdjnOfLmuggRtAg+q1c90Z+OrH5K5zryjtL+plYVX07djWtY5zM7xmc4tJaSBoGiRxlVq57aXzySbpwkRDA1oA6ADQ9ZlHmjq4ezdRkipaSfs97fWABJIAHEmB5pG/tpYAwbulpofekeY0Xgtzi1R4yPq1XtmYdUe4T3EwVCyrzS/IbcXYk/3n/h9LULplVodTc17SNC0gg+IVZxi0yukbEnw8F57+mGIPp3zKbCclbM17RtLWOc15HMZYnkV6njmu0abpMjtWc3qOlfS53jbsreeN/BC1boE/FCkvjlBcSqLiuPwTHyVHCxE6Lqb0f3SuHVg7TjwXmZ7QgHUOB5zKd4Vjof/ACn1Hei4NBUky2MMEDqunN08Sl9K6mPCE3tGZh5JWrA3QTZWWzvzkF3fM92AOCZ27Pd8EDiD4B66IuNIMJWxXY04dJXeI14Hh9VqjTIkkpXiNxwVXg0VbILm8S24u1zcv0SytUkqIsonq15XVAaoUOgSUsu8cjRnmVFG/BOSXktTblo3K7FzK8/fjZ/vCLs8fIOuo6IvEwfJFl6D5Cie9zdZKCsb7MJBTCQQqxgc4m7+4rTa7qm5MfmyirUpKLtaOncpQrdGjS0iEpxK0Ja7uT9zVp9AFjj0KtgjHllbOv03/T62u7U17g1C41HNAa7KGhvPTUmVtP8A9IcRa21q03H4azj4OA+y2rNGZuR5/jOJupE02e6NQucA7XXFrmNEtlzYOYFw12IE7iEHj+JCvUDGCBMEqCrZgaN0I0M8Y6cFodJG7tmD5stNWjVa8dVc59Qy9xLnGAJJ3MAAddlGag218DvuoTTIKkaOarZ6uFpVVUayA9OvPwUzzOg8yuA3kPNdhh5+WihYoMKw3EXW9WnWpxnpukA/MOg7ESPFerYH2nbe08xYWPbAeNSNZgtdxGm248ifHxRE77+JJV87G2j6DHucC01MoDDuA3NqRwJzbdEJeDmd0w43HnL9vof4pa+1GQODQTqTsGgEucegAnwXkeNVA3QDeYP5xV7xXF4NRn97HMPQEgGPCR4qm9qsUBo0bYNj2b6tQn+81AwN8gCE2NHmctp0Vt4WNe5kPaSCDusFzGwCiqVC7dWiHoPZnEhXZ/uB1HX7L0DDKZhvcvIv07J/ckcMk+RC9uw+hABVDjUizlcQrYJVfamUyuHaJTcPlCQ+NAdxUgO7j6Ku3jtU9vTuAktzTWeRtgLK4lBOpgJsWBLcUEMJQiPL2VTG8T3A0HAc1XyXO1OykxB8vPKdFjC0fET3CFuhGkczJNykaNIZZjj8lNaMDjGx4LipXaQQ0ETHy5rLL4296mwJ0WnBqjmaOVrtakhVfDrgmGEyANOmvDzVltKcAQsWXTOlh/KIVUpSpbZnguGXEbhZ+5EqtMk4ktQLufcI6KNxnVcPdoR0K0I5007FHZrERS9s0g/HwMcFtLbRzmvqQN3cekraNg4sY4nYUaDw1o1G5P3SzFsWofxbmcBEiRtz5oXH8aZVfFOdTuVKOz7AzM5+vfACvevI2PLOL/5ugW3uJbO4JOnL8C7cG8DHn+Bc/s/Zy0GQfeHofoo3u4Kf0eu6XPzwRk9mPJ56cI2XJK5JUbqilUNLIP8AshQDrlpOzGuf4iGj5unwV7fWEqndiWhoqVHTLstNgAJLo95+UDcCWa8FZnjqs2SX5HD6vJzyf0J+0lmT/UZrzVMxhhqQ7+TdwvR2E7HZQV8Jov3Z5aJoZKMGTHZ5NCltrV9Q5abS4ngNfNen0+ydsTPs58T6J/hmCsZDWMDR0EK/5fRT8VeRJ+nnZt1GTUAzEiY1gDhK9JGgQtjbtYNAp67oCVewfwB3lWEnuampJRtzVEpNiFZVyNONEb64mUFXrAoeq/qoH1VTLZqSJCgMTaS1FiqpDSDglWhjzLFsPIJIBiUrheoXGHAHoll12apVNYLTzC0wzL7Mk+mb3E8/lHYZQJdnOw26lWin2NbPxEpra9n2M4TCaWeNaK49NL7F2BWLi7OdNh4BWJ1WNAonMyjkod9hCySlbN0I8VQSXyo2EgqMTG66ppKGGlKoobipAJ71zSQzq3vEEq7G7Rg6mFOxW+6YCViV3T4qv8PqtK3iipTZE6zbIMRxB4FN7O+YB7wIdz4H7KDFbYUXQ0uPePtoUMHjfY7wqm5x8mJPJiew26ptPvMI55R10kA8/JLHP6Hqntwz3czYBHMAg94KlGEtfRfV2LWOJDdACBO0+iMcjT0dDpe4zgmo/wCMrJqLu3t31CQ1pJ3MDRo5k7NHU6L0nsl2co1KcVaQeA3MZn4nyG6jpJ6EBMKHZO2pElgfEzBdI024T85TrK5RtI2S7lKcdKhP2fw5zaY1y6BpcBrlH8Kc7CSSTuSZ6JoLRrPhaBO54nvO5TR8AAAaAbIYkJOJjjLdsF9n0XTLYk6BMKFtxGqbWtnoisYzypC60szxTKiyFKWwtBXJUVuVnbBqg8SrgCES6rAVfxOsSSi3SJBWwa5rpbdOW7ioUDVqlVNmyMaILh/BD51zc1EN7RVsuSDZRdsSgqRkbo2nISsiCHtB0Wm0QtNeuvapRiRtILlzoWzXChqVVAEdZo5jyQNTwRNWqOaEquUoHIjLhwRFIoVoRLCo0KnsKphLbrBq76mdrdEyYVX8U7Q3NNxDTA7j91ZiRn6h6N4n2ZuHPlrDELEud2xuh/3PktLTUjDaFgqVK78z3E6zrt4K4V6DTQOgkNPAcAqjaVmNDNdfqnd9jbGsyNILiI6DxRmrGi1WzrDKrzTMmRA46gyBl135jx5FNret/QrujdrGxExLg2SeHxKs9m7oNqOpVA4F7SWkQfeZLxl5yA5o/wAk1cGFwLSSajmnl7syCRzWecVC2USUIfkvLLv/ANeZa2r4IdVLoazeDkaGl0bAQ4xuqjVxWu92d1V0g5xqcrXSPhbsAo8fcczT/uqfJ0egCB9uI8PqFn5OkjPPJJ6RdcDxt1b3Hn+oBMgfE0RqY0B11T63aOK83wu4La1It3L2iCYBzHLqeWq9LotH2WnE+S2acWVuOxtYN4JsGQEFh3REVX8FfQ+2Qv3XNRy26oBooK1SVBxdiF3GiR1boGdU5v7TMqdfWrmvBBO6SSNGOSRPc3CX1bhSYno2UkqV9FWa4tUT3NwEGa4STEKj3O0MAKeyt3u0lHj9k5/Q8wy7zcICdU3pVY2uQI9rlTIZMI9qturKHfiomsM7pSWTurBQVqnIriulz3xxTJWLKQQ9yiNXqgq1w4KFr3FPxK+QzbV1RtCoOaUUpRdMwhJBixxTfKrnaajHvaR129Cndu5Lu0duXN01PfHpqpjdSFzK4lLL28W+RifP6LFzcWb2mHENPLdYt2jmcmSNw+oT8MJyzCKTGZnuBdEw4wD3dVK2qPeMgwPkk+K3VOpBbMgQeSTbHcYxQwpsy6tdxBHQzOnRG4a7+sz/ADH/AAPVL7HWm3XgmltQyGm4/wB2vDugdyyZIyV2Z3ik9jq/cW0KjixpzH2TcwBjM7O57QeIDQARsSeWqWhQby4J/wBpAHWoaJL21HOaACSWNBLnmNg1rokwPkqzQuoHVVy8IqyqmqN3tICDGnLgjsKuX0xmp1HM6TLdNYIOnySu7uZEK+/6NzsZUpvFNzmMLmkEszFozFp3A3MJoqT8AhGTWhz2Q7TtqH2Nb3KugbvlqHjl/tOmx8JVmrPC8suOzl3Tg+zzQdHUnZi0jWREOHluFdcGxI16LKhcC6MtSNIeNwRwOx8Voxyb0zVik/Ehq7nKjNVQHMe5RvBG6sLgirUlJMRpo+CYQd84AGfFSiKVFVxquMunBVT9xunuO7kjZVyjTzGOqSjVHJo3TbJTa0cGoRtEN0UrSkkh1P0NP3IWNfKXtcpBUM6JeI/MZ9y29ruCX+2cFJ+6cEvEbkFOY6Enuc07Jm28KAxGoDw15oxFm7QGaTuRXTQeXyUIHVSsceqcqCablM1/RQseeJn5ohjZ4BI2WILt6i5xOu5rdB+d6ltqaDxum7SGt7yCfohDcgZf1KndUy5xLpJ6HRYpquYHUFYtZzqFtWk5j3MBkjQx9UVhuDuqkxJjkDH/ALFNaFOWZ3OYNdmiUe3Gsvu0qb6juejW+aPL0FQV7EtTD7im7I1uXkQRPgSmNnYvylz3hzhqAWguga6PB3iUXaGpXJD8odpAYDUeOSteC9jwBnr1HuMaNk8R/LLp4fNZeo6rHjjU2WLC5/qG9m6NN7S8hpzgBwIEluUaHmNSqh2j7L1aLnvYA+lLne7uwFxhpB1MCNR8lauydCpSYRVa5pDQBPHUnWN4+pT5lVh0nz09Vx83cnjlxStIvj0SyQ/LR5Z2Zwc3dw1kHI2HVDyaPqYA8V7IKE7pDbYc23e+pRGQvDQ5v8TlzRpw+IpzZ3ufQCCNx9RzW/petxZXxj5KH0k8KC3Q0aJbWrsDi7KMxEExqRvBPFG13JXcjVdBFRxUxSFCLzNrC4qvY0awlzsUbt5IoA0qXUCeSVX11mCHucSaQNd0ovsQHBNQUB4vcDVI7SoJ71Jid0DOqVULgzshRZeiwPPJROqwUMy4EbqB9YykcSyMqGJuAtsuAloqSu21EHEfmNaVzzRArtSumQVKKaRodTG1OuOi4uXsO8jqBIQQaQJH/wAXIcXfZChuRL+3nUZXd2h8lgpRuI71pjOSJp1CNNx1QbCkcsYiaQW2NaeEdy3khIOEUig8YnKIKLoBFnBqlYQCAOv0RhpleTcSgVKj53PosVpuOx1fMYYInSNJ6ra1c0c9wkKXVmUqHutmBu7mrX2B7J+3oturn3g/WnT2ZlmA5wHxE6wDpEeHmta5dUPs+Er37sRVBw+hH8aYZ4s9z6LD3HJLFh/F02X4alL+hnYYZTY2GsaByAAHkERVpCEM7FabPicB3mFFUxuidnjzn0XnnKMo+zcoyshu6KWV6QRdfEGnme5rj9Eur3w4NcfAj1WSMJX4NKI7Sc5bJI4IppyPa4c4PcdD6oLDKhLiSIKOqauaP9zfUK7Hcc0a/gE/1Y2UNeiCpXFRPrBezRwGV/FcOdqRqqjeWzmmdV6Y+I1QFTD6bzqAnSJyPL7qu4bgpVWuXHQL0rH8Fa4QBEKsHAwxQZNFTdbu4qP2BVrdaCNksqsEwoNYkAcFttczqjq7EO+ipYxwKimaoBQRFJqVhRMwlF03lDtC7nVJIsiGNqHhw3Ckp0w7UaHl9lFRbP8AkPmiGDiN+KrZakStg76FSArKZDujvkVqeBSssRIAu2OUBHJSUiUKCMraDwhOrOuW8PEE/MJLaplSckbCkOaeIafdYlJcsQsHE8btK4G+8yvoXsHaEYfRzbvb7TuFQ5mjyIXgdDC5M1DlaZgfyPcOC+i+zmIMqWtJzNsjRHItGUjwIhDusl8aRj6a9nQwWnOYtBPMhTiyaNgFL+6bxKhq3jea86+FaN9zYNc0Qllami7rEGDd7R3kBKbjEmcDm/xBPosyhNvSL4+COocrweseaLc7VpHNvqFxgbKVeo5lYOBI9wTlBjU6g/F070+pYVRYZGZxG2YzHcur03b55OM01oz5upjC4sEqOlQnTVHXFBA1KJC9MonHsGrVCVGK8LuoEJV3TXQAitUzBIb1u6OrOKErGAJ3KJCu3VQjSEkuBqrVd0AUkurUJWWRYoeCtEI99sozSSsssGFNSNpqTLC2GkoBTIApabF2ykpEjLonVMwUW4yM40I3H1QSkZVI1/CEg9k7jOrd+I+qlZWFQQdHcDz70O4QQ5ux+XOVL7KfeA7woE5ALTBmUdR1WqZzCHb8D9102lBSNjpBtAI1j0BRKLY5VscJlYoQTwWKEPP22cOD6jpO/h0Cu36Z4mXXLqERSexzgCdS9paJA4AgnyCpVWtADjqdhy24pj2EvHMv6L95Ja7ueC3TxIPgtPUY1PFJP0c/HKpKj2i5wVjjx8z90P8A6dp8RPfqnL6mkrltVeUainp0dBTlQAzCaTNmNHgEHeW4TWtVSi8rLNklukXQv7APZw9hG+dsd+YK1VGKnUsRLageGghhkg8VbqtWfzmvRdm1GSZg7h5RDWcEJUqIio1DVAu4c4CrFAVd0fUYhK7UskFEdccUDWYCiXVJ0/NVAG69RsenIoILQtuqCX1bQkJ86vO7QoyAQgFFYfblcG2lPq1Acfkl9xTAPPwQHsVutiN11Tppgak8FzSpaylY6A3UVF7NM6oQuRIy6LBckLpjVO5q2xiUc3Q5cFIQWGRqFjQiqYkQUrY5EHA6jy5Imk6RB8CogyNV0acJRyaCCpqdRR0dRBW2hCghbSsULSsU0Q//2Q==" alt="Feliz Cumpleaños">
+
+  <canvas id="confetti"></canvas>
+
+<script>
+  const canvas = document.getElementById('confetti');
+  const ctx = canvas.getContext('2d');
+
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  window.addEventListener('resize', resizeCanvas);
+  resizeCanvas();
+
+  function Confeti(x, y, color, isHeart = false) {
+    this.x = x;
+    this.y = y;
+    this.size = isHeart ? 20 : Math.random() * 8 + 4;
+    this.color = color;
+    this.speedX = Math.random() * 4 - 2;
+    this.speedY = Math.random() * 4 + 2;
+    this.isHeart = isHeart;
+  }
+
+  let confetis = [];
+  function crearConfeti(x, y) {
+    const colores = ['#ff0', '#f0f', '#0ff', '#0f0', '#f00', '#00f', '#ffa500'];
+    for (let i = 0; i < 50; i++) {
+      let esCorazon = Math.random() < 0.1; // 10% probabilidad
+      confetis.push(new Confeti(
+        x, y,
+        colores[Math.floor(Math.random() * colores.length)],
+        esCorazon
+      ));
+    }
+  }
+
+  function animar() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    confetis.forEach((c, i) => {
+      c.x += c.speedX;
+      c.y += c.speedY;
+
+      if (c.isHeart) {
+        ctx.font = `${c.size}px Arial`;
+        ctx.fillText("💓", c.x, c.y);
+      } else {
+        ctx.fillStyle = c.color;
+        ctx.fillRect(c.x, c.y, c.size, c.size);
+      }
+
+      if (c.y > canvas.height) confetis.splice(i, 1);
+    });
+    requestAnimationFrame(animar);
+  }
+
+  window.addEventListener('click', (e) => crearConfeti(e.clientX, e.clientY));
+  window.addEventListener('touchstart', (e) => {
+    const touch = e.touches[0];
+    crearConfeti(touch.clientX, touch.clientY);
+  });
+
+  // Mostrar "FELIZ DÍA" después de 8 segundos
+  setTimeout(() => {
+    document.getElementById('felizDia').style.display = 'block';
+    crearConfeti(window.innerWidth / 2, window.innerHeight / 2);
+
+    // Mostrar "Espero mi parte del pastel" 2 segundos después
+    setTimeout(() => {
+      document.getElementById('partePastel').style.display = 'block';
+    }, 2000);
+  }, 8000);
+
+  animar();
+</script>
+</body>
+</html>
+
